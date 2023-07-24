@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>FNSKU Search</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        .container {
+            max-width: 960px;
+            margin: auto;
+        }
+        @media (max-width: 600px) {
+            .container {
+                width: 100%;
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <input type="text" id="FNSKU" placeholder="Ingrese FNSKU">
+        <button onclick="fetchData()">Buscar</button>
+
+        <h1 id="apiTitle">Title will appear here...</h1>
+        <img id="apiImage" src="#" alt="Image will appear here...">
+    </div>
+
+    <script>
+function fetchData() {
+  var FNSKU = document.getElementById('FNSKU').value;
+
+  // Replace with the URL of your web app
+  var apiEndpoint = "https://script.google.com/macros/s/AKfycbyaWUL6PDWQkyiSC1-oubkhJLfoKzNwjUNP07zVmNDtPIx24-d5t44KCdwUc_6yiXsRuQ/exec?fnsku=" + FNSKU;
+
+  fetch(apiEndpoint)
+    .then(response => response.json())
+    .then(data => {
+      console.log('Success:', data);
+      document.getElementById('apiTitle').innerText = data.resultado.title;
+      document.getElementById('apiImage').src = data.resultado.image;
+    })
+    .catch(error => console.error('Error:', error));
+}
+
+    </script>
+</body>
+</html>
