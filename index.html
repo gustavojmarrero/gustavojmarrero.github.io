@@ -13,14 +13,16 @@
                     <input type="text" class="form-control form-control-lg" id="FNSKU" placeholder="Ingrese FNSKU" onchange="fetchData()">
                 </div>
                 <h2 id="FNSKUdisplay" class="text-center my-4"></h2>
+                <h3 id="ASINdisplay" class="text-center my-4"></h3>
+                <h2 id="PAOdisplay" class="text-center my-4"></h2>
                 <div id="loader" class="d-none text-center">
                     <div class="spinner-border text-primary" role="status">
-                        <span class="sr-only">Cargando...</span>
+                        <span class="sr-only"></span>
                     </div>
                 </div>
-                <h1 id="apiTitle" class="text-center my-4">Cargando...</h1>
+                <h1 id="apiTitle" class="text-center my-4"></h1>
                 <div class="text-center">
-                    <img id="apiImage" src="#" alt="Image will appear here...">
+                    <img id="apiImage" src="#" alt="">
                 </div>
             </div>
         </div>
@@ -43,6 +45,12 @@
             console.log('Success:', data);
             document.getElementById('apiTitle').innerText = data.resultado.title;
             document.getElementById('apiImage').src = data.resultado.image;
+            document.getElementById('ASINdisplay').innerText = data.resultado.asin ? data.resultado.asin : '';
+            if(data.resultado.pao) {
+                document.getElementById('PAOdisplay').innerText = data.resultado.pao;
+            } else {
+                document.getElementById('PAOdisplay').innerText = "Falta definir Caducidad";
+            }
             document.getElementById('loader').classList.add('d-none');
             document.getElementById('FNSKU').focus(); // Focus on the input after fetching data
         })
