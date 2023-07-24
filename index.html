@@ -4,6 +4,14 @@
     <title>FNSKU Search</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        #FNSKUdisplay {
+            font-size: 2rem;  /* Change this as per your requirement */
+        }
+        #ASINdisplay {
+            font-size: 80%;  /* 70% of FNSKUdisplay font size */
+        }
+    </style>
 </head>
 <body>
     <div class="container py-5">
@@ -45,7 +53,7 @@
             console.log('Success:', data);
             document.getElementById('apiTitle').innerText = data.resultado.title;
             document.getElementById('apiImage').src = data.resultado.image;
-            document.getElementById('ASINdisplay').innerText = data.resultado.asin ? data.resultado.asin : '';
+            document.getElementById('ASINdisplay').innerText = data.resultado.asin ?  data.resultado.asin : '';
             if(data.resultado.pao) {
                 document.getElementById('PAOdisplay').innerText = data.resultado.pao;
             } else {
