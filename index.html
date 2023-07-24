@@ -3,71 +3,48 @@
 <head>
     <title>FNSKU Search</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <style>
-        .container {
-            max-width: 960px;
-            margin: auto;
-        }
-        @media (max-width: 600px) {
-            .container {
-                width: 100%;
-                padding: 20px;
-            }
-        }
-        #FNSKU {
-            width: 100%;
-            height: 130%;
-        }
-        .loader {
-            border: 16px solid #f3f3f3;
-            border-radius: 50%;
-            border-top: 16px solid blue;
-            border-right: 16px solid green;
-            border-bottom: 16px solid red;
-            border-left: 16px solid pink;
-            width: 120px;
-            height: 120px;
-            -webkit-animation: spin 2s linear infinite; /* Safari */
-            animation: spin 2s linear infinite;
-        }
-        @-webkit-keyframes spin { /* Safari */
-            0% { -webkit-transform: rotate(0deg); }
-            100% { -webkit-transform: rotate(360deg); }
-        }
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-    </style>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-    <div class="container">
-        <input type="text" id="FNSKU" placeholder="Ingrese FNSKU" oninput="fetchData()">
-        <div id="loader" class="loader" style="display:none;"></div>
-
-        <h1 id="apiTitle">Cargando..</h1>
-        <img id="apiImage" src="#" alt="Image will appear here...">
+    <div class="container py-5">
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <div class="form-group">
+                    <input type="text" class="form-control form-control-lg" id="FNSKU" placeholder="Ingrese FNSKU" oninput="fetchData()">
+                </div>
+                <div id="loader" class="d-none text-center">
+                    <div class="spinner-border text-primary" role="status">
+                        <span class="sr-only">Cargando...</span>
+                    </div>
+                </div>
+                <h1 id="apiTitle" class="text-center my-4">Cargando...</h1>
+                <div class="text-center">
+                    <img id="apiImage" src="#" alt="Image will appear here...">
+                </div>
+            </div>
+        </div>
     </div>
-
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
     <script>
     function fetchData() {
-      var FNSKU = document.getElementById('FNSKU').value;
+        var FNSKU = document.getElementById('FNSKU').value;
 
-      // Replace with the URL of your web app
-      var apiEndpoint = "https://script.google.com/macros/s/AKfycbyaWUL6PDWQkyiSC1-oubkhJLfoKzNwjUNP07zVmNDtPIx24-d5t44KCdwUc_6yiXsRuQ/exec?fnsku=" + FNSKU;
+        // Replace with the URL of your web app
+        var apiEndpoint = "https://script.google.com/macros/s/AKfycbyaWUL6PDWQkyiSC1-oubkhJLfoKzNwjUNP07zVmNDtPIx24-d5t44KCdwUc_6yiXsRuQ/exec?fnsku=" + FNSKU;
 
-      document.getElementById('loader').style.display = 'block';
-      fetch(apiEndpoint)
+        document.getElementById('loader').classList.remove('d-none');
+        fetch(apiEndpoint)
         .then(response => response.json())
         .then(data => {
-          console.log('Success:', data);
-          document.getElementById('apiTitle').innerText = data.resultado.title;
-          document.getElementById('apiImage').src = data.resultado.image;
-          document.getElementById('loader').style.display = 'none';
+            console.log('Success:', data);
+            document.getElementById('apiTitle').innerText = data.resultado.title;
+            document.getElementById('apiImage').src = data.resultado.image;
+            document.getElementById('loader').classList.add('d-none');
         })
         .catch(error => {
-          console.error('Error:', error);
-          document.getElementById('loader').style.display = 'none';
+            console.error('Error:', error);
+            document.getElementById('loader').classList.add('d-none');
         });
     }
     </script>
