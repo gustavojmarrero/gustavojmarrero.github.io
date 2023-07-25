@@ -15,6 +15,18 @@
         #loader {
             display: none;  /* Hide the loader initially */
         }
+        img {
+            max-height: 150px;  /* for mobile */
+            width: auto;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        @media (min-width: 992px) {
+            img {
+                max-height: 300px;  /* for PC */
+            }
+        }
     </style>
 </head>
 <body>
@@ -38,7 +50,7 @@
         <div class="row">
             <div class="col-lg-8 mx-auto">
                 <div class="form-group">
-                    <input type="text" class="form-control form-control-lg" id="orderNumber" placeholder="Ingrese Número de pedido y Precione Enter" onchange="fetchData()">
+                    <input type="text" class="form-control form-control-lg" id="orderNumber" placeholder="Ingrese Número de pedido y Presione Enter" onchange="fetchData()">
                 </div>
                 <div id="loader" class="text-center">
                     <div class="spinner-border text-primary" role="status">
@@ -66,7 +78,11 @@
             var orderResult = document.getElementById('orderResult');
             orderResult.innerHTML = ''; // Clear the previous results
 
-            data.resultado.forEach(item => {
+            var statusElement = document.createElement('h3');
+            statusElement.innerText = 'Estado del Pedido: ' + data.status;
+            orderResult.appendChild(statusElement);
+
+            data.productos.forEach(item => {
                 var titleElement = document.createElement('h2');
                 titleElement.innerText = item.title;
                 var asinElement = document.createElement('h3');
@@ -76,8 +92,10 @@
                 var imgElement = document.createElement('img');
                 imgElement.src = item.img;
 
+                orderResult.appendChild(document.createElement('br'));  // Add space
                 orderResult.appendChild(titleElement);
                 orderResult.appendChild(asinElement);
+                orderResult.appendChild(document.createElement('br'));  // Add space
                 orderResult.appendChild(qtyElement);
                 orderResult.appendChild(imgElement);
             });
