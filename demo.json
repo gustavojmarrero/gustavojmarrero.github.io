@@ -1,0 +1,44 @@
+{
+    "resultado": [
+        {
+            "supplier": "Sanborns",
+            "order": "5670365",
+            "status": "Entrega Parcial",
+            "destiny": "Reynosa",
+            "productos": [
+                {
+                    "supplier": "Sanborns",
+                    "order": "5670365",
+                    "asin": "B08CCN93Z1",
+                    "title": "L´Oréal Paris Corrector Touch Magique Ivory Beige 1-2 W, 5ml",
+                    "qty": 1,
+                    "img": "https://images-na.ssl-images-amazon.com/images/I/215qpE7sZuL.jpg"
+                },
+                {
+                    "supplier": "Sanborns",
+                    "order": "5670365",
+                    "asin": "B00U8WRDUK",
+                    "title": "Sesderma K-vit Facial Revitalizing Eye Serum, 1.0 oz.",
+                    "qty": 1,
+                    "img": "https://images-na.ssl-images-amazon.com/images/I/31qBDG74jaL.jpg"
+                },
+                {
+                    "supplier": "Sanborns",
+                    "order": "5670365",
+                    "asin": "B00U8WRDUK",
+                    "title": "Sesderma K-vit Facial Revitalizing Eye Serum, 1.0 oz.",
+                    "qty": 1,
+                    "img": "https://images-na.ssl-images-amazon.com/images/I/31qBDG74jaL.jpg"
+                },
+                {
+                    "supplier": "Sanborns",
+                    "order": "5670365",
+                    "asin": "B00U8WRDUK",
+                    "title": "Sesderma K-vit Facial Revitalizing Eye Serum, 1.0 oz.",
+                    "qty": 1,
+                    "img": "https://images-na.ssl-images-amazon.com/images/I/31qBDG74jaL.jpg"
+                }
+            ]
+        }
+    ]
+}
