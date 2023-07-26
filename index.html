@@ -1,22 +1,16 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
   <head>
     <title>FNSKU</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8">
     <link
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
       rel="stylesheet"
-    />
-    <link rel="icon" href="favicon.png" />
-    <style>
-      #FNSKUdisplay {
-        font-size: 2rem; /* Change this as per your requirement */
-      }
-      #ASINdisplay {
-        font-size: 80%; /* 70% of FNSKUdisplay font size */
-      }
-    </style>
+    >
+    <link rel="icon" href="favicon.png">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+
   </head>
   <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -78,49 +72,6 @@
     </div>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-    <script>
-      function fetchData() {
-        var FNSKU = document.getElementById("FNSKU").value;
-        document.getElementById("FNSKU").value = "";
-        document.getElementById("FNSKUdisplay").innerText = FNSKU;
-
-        // Replace with the URL of your web app
-        var apiEndpoint =
-          "https://script.google.com/macros/s/AKfycbyaWUL6PDWQkyiSC1-oubkhJLfoKzNwjUNP07zVmNDtPIx24-d5t44KCdwUc_6yiXsRuQ/exec?fnsku=" +
-          FNSKU;
-
-        document.getElementById("loader").classList.remove("d-none");
-        fetch(apiEndpoint)
-          .then((response) => response.json())
-          .then((data) => {
-            console.log("Success:", data);
-            document.getElementById("apiTitle").innerText =
-              data.resultado.title;
-            document.getElementById("apiImage").src = data.resultado.image;
-            document.getElementById("ASINdisplay").innerText = data.resultado
-              .asin
-              ? data.resultado.asin
-              : "";
-            if (data.resultado.pao) {
-              document.getElementById("PAOdisplay").innerText =
-                data.resultado.pao;
-            } else {
-              document.getElementById("PAOdisplay").innerText =
-                "Falta definir Caducidad";
-            }
-            document.getElementById("loader").classList.add("d-none");
-            document.getElementById("FNSKU").focus(); // Focus on the input after fetching data
-          })
-          .catch((error) => {
-            console.error("Error:", error);
-            document.getElementById("loader").classList.add("d-none");
-            document.getElementById("FNSKU").focus(); // Focus on the input after catching an error
-          });
-      }
-
-      window.onload = function () {
-        document.getElementById("FNSKU").focus(); // Focus on the input when the page loads
-      };
-    </script>
+    <script src="script.js"></script>
   </body>
 </html>
