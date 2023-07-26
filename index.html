@@ -1,99 +1,126 @@
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
     <title>FNSKU</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta charset="UTF-8">
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="icon" href="favicon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="UTF-8" />
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="icon" href="favicon.png" />
     <style>
-        #FNSKUdisplay {
-            font-size: 2rem;  /* Change this as per your requirement */
-        }
-        #ASINdisplay {
-            font-size: 80%;  /* 70% of FNSKUdisplay font size */
-        }
+      #FNSKUdisplay {
+        font-size: 2rem; /* Change this as per your requirement */
+      }
+      #ASINdisplay {
+        font-size: 80%; /* 70% of FNSKUdisplay font size */
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">Recepción Almacén</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">FNSKU<span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="pedido.html">Pedido</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="pedidos.html">Por Arribar</a>
-                </li>
-            </ul>
-        </div>
+      <a class="navbar-brand" href="#">Recepción Almacén</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item active">
+            <a class="nav-link" href="#"
+              >FNSKU<span class="sr-only">(current)</span></a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="pedido.html">Pedido</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="pedidos.html">Por Arribar</a>
+          </li>
+        </ul>
+      </div>
     </nav>
 
     <div class="container py-5">
-        <div class="row">
-            <div class="col-lg-8 mx-auto">
-                <div class="form-group">
-                    <input type="text" class="form-control form-control-lg" id="FNSKU" placeholder="Ingrese FNSKU" onchange="fetchData()">
-                </div>
-                <h2 id="FNSKUdisplay" class="text-center my-4"></h2>
-                <h3 id="ASINdisplay" class="text-center my-4"></h3>
-                <h2 id="PAOdisplay" class="text-center my-4"></h2>
-                <div id="loader" class="d-none text-center">
-                    <div class="spinner-border text-primary" role="status">
-                        <span class="sr-only"></span>
-                    </div>
-                </div>
-                <h1 id="apiTitle" class="text-center my-4"></h1>
-                <div class="text-center">
-                    <img id="apiImage" src="#" alt="">
-                </div>
+      <div class="row">
+        <div class="col-lg-8 mx-auto">
+          <div class="form-group">
+            <input
+              type="text"
+              class="form-control form-control-lg"
+              id="FNSKU"
+              placeholder="Ingrese FNSKU"
+              onchange="fetchData()"
+            />
+          </div>
+          <h2 id="FNSKUdisplay" class="text-center my-4"></h2>
+          <h3 id="ASINdisplay" class="text-center my-4"></h3>
+          <h2 id="PAOdisplay" class="text-center my-4"></h2>
+          <div id="loader" class="d-none text-center">
+            <div class="spinner-border text-primary" role="status">
+              <span class="sr-only"></span>
             </div>
+          </div>
+          <h1 id="apiTitle" class="text-center my-4"></h1>
+          <div class="text-center">
+            <img id="apiImage" src="#" alt="" />
+          </div>
         </div>
+      </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
     <script>
-    function fetchData() {
-        var FNSKU = document.getElementById('FNSKU').value;
-        document.getElementById('FNSKU').value = '';
-        document.getElementById('FNSKUdisplay').innerText = FNSKU;
+      function fetchData() {
+        var FNSKU = document.getElementById("FNSKU").value;
+        document.getElementById("FNSKU").value = "";
+        document.getElementById("FNSKUdisplay").innerText = FNSKU;
 
         // Replace with the URL of your web app
-        var apiEndpoint = "https://script.google.com/macros/s/AKfycbyaWUL6PDWQkyiSC1-oubkhJLfoKzNwjUNP07zVmNDtPIx24-d5t44KCdwUc_6yiXsRuQ/exec?fnsku=" + FNSKU;
+        var apiEndpoint =
+          "https://script.google.com/macros/s/AKfycbyaWUL6PDWQkyiSC1-oubkhJLfoKzNwjUNP07zVmNDtPIx24-d5t44KCdwUc_6yiXsRuQ/exec?fnsku=" +
+          FNSKU;
 
-        document.getElementById('loader').classList.remove('d-none');
+        document.getElementById("loader").classList.remove("d-none");
         fetch(apiEndpoint)
-        .then(response => response.json())
-        .then(data => {
-            console.log('Success:', data);
-            document.getElementById('apiTitle').innerText = data.resultado.title;
-            document.getElementById('apiImage').src = data.resultado.image;
-            document.getElementById('ASINdisplay').innerText = data.resultado.asin ?  data.resultado.asin : '';
-            if(data.resultado.pao) {
-                document.getElementById('PAOdisplay').innerText = data.resultado.pao;
+          .then((response) => response.json())
+          .then((data) => {
+            console.log("Success:", data);
+            document.getElementById("apiTitle").innerText =
+              data.resultado.title;
+            document.getElementById("apiImage").src = data.resultado.image;
+            document.getElementById("ASINdisplay").innerText = data.resultado
+              .asin
+              ? data.resultado.asin
+              : "";
+            if (data.resultado.pao) {
+              document.getElementById("PAOdisplay").innerText =
+                data.resultado.pao;
             } else {
-                document.getElementById('PAOdisplay').innerText = "Falta definir Caducidad";
+              document.getElementById("PAOdisplay").innerText =
+                "Falta definir Caducidad";
             }
-            document.getElementById('loader').classList.add('d-none');
-            document.getElementById('FNSKU').focus(); // Focus on the input after fetching data
-        })
-        .catch(error => {
-            console.error('Error:', error);
-            document.getElementById('loader').classList.add('d-none');
-            document.getElementById('FNSKU').focus(); // Focus on the input after catching an error
-        });
-    }
+            document.getElementById("loader").classList.add("d-none");
+            document.getElementById("FNSKU").focus(); // Focus on the input after fetching data
+          })
+          .catch((error) => {
+            console.error("Error:", error);
+            document.getElementById("loader").classList.add("d-none");
+            document.getElementById("FNSKU").focus(); // Focus on the input after catching an error
+          });
+      }
 
-    window.onload = function() {
-        document.getElementById('FNSKU').focus(); // Focus on the input when the page loads
-    }
+      window.onload = function () {
+        document.getElementById("FNSKU").focus(); // Focus on the input when the page loads
+      };
     </script>
-</body>
+  </body>
 </html>
