@@ -51,7 +51,7 @@
               <option>Cancún</option>
             </select>
           </div>
-          <button class="search-button" onclick="fetchData()">Buscar</button>
+          <button class="search-button" onclick="getOrdersByLocation()">Buscar</button>
           <div id="loader">
             <div class="spinner-border text-primary" role="status">
               <span class="sr-only">Cargando...</span>
@@ -75,44 +75,6 @@
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-    <script>
-      function fetchData() {
-        var destino = document.getElementById("destino").value;
-        var apiEndpoint =
-          "https://script.google.com/macros/s/AKfycbyjdQBCUFJ_lvBchWJkq_Jg5R4UbpZzzPVnNkb0YTc6xrZrqf4IXrQa9XHvAjDmWDRVmg/exec?&destiny=" +
-          destino;
-
-        // Clear the previous results
-        var resultsBody = document
-          .getElementById("results")
-          .getElementsByTagName("tbody")[0];
-        resultsBody.innerHTML = "";
-
-        document.getElementById("loader").style.display = "block"; // Show the loader
-
-        fetch(apiEndpoint)
-          .then((response) => response.json())
-          .then((data) => {
-            console.log("Success:", data);
-
-            data.resultado.forEach((order) => {
-              var row = resultsBody.insertRow();
-              row.insertCell().innerText = order.supplier;
-              var cell = row.insertCell();
-              var link = document.createElement("a");
-              link.href = "pedido.html?order=" + order.order;
-              link.innerText = order.order;
-              cell.appendChild(link);
-              row.insertCell().innerText = order.total_qty;
-            });
-
-            document.getElementById("loader").style.display = "none"; // Hide the loader
-          })
-          .catch((error) => {
-            console.error("Error:", error);
-            document.getElementById("loader").style.display = "none"; // Hide the loader
-          });
-      }
-    </script>
+    <script src="script.js"></script>
   </body>
 </html>
