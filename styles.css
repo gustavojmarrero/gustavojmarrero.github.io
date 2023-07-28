@@ -63,9 +63,7 @@
       h3 {
         font-size: 1.3rem; /* 80% of h2 font size */
       }
-      #loader {
-        display: none; /* Hide the loader initially */
-      }
+      
       img {
         max-height: 150px; /* for mobile */
         width: auto;
