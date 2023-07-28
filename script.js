@@ -1,5 +1,19 @@
 // Index
 
+window.onload = function () {
+  // Obtén la ruta de la página actual
+  const path = window.location.pathname;
+
+  // Extrae el nombre de la página de la ruta
+  const page = path.split("/").pop();
+
+  // Solo ejecuta el código si la página es index.html
+  if (page === "index.html" || page === "") {
+    FNSKU.focus();
+  }
+};
+
+
 function getDataByFNSKU() {
     var FNSKU = document.getElementById("FNSKU").value;
     document.getElementById("FNSKU").value = "";
@@ -39,18 +53,7 @@ function getDataByFNSKU() {
       });
   }
 
-  window.onload = function () {
-    // Obtén la ruta de la página actual
-    const path = window.location.pathname;
-  
-    // Extrae el nombre de la página de la ruta
-    const page = path.split("/").pop();
-  
-    // Solo ejecuta el código si la página es index.html
-    if (page === "index.html" || page === "") {
-      FNSKU.focus();
-    }
-  };
+
 
   // Pedido
 
@@ -75,8 +78,11 @@ function getDataByFNSKU() {
         orderResult.innerHTML = ""; // Clear the previous results
 
         var statusElement = document.createElement("h3");
+        var total_qtyElement = document.createElement("h3");
         statusElement.innerText = "Estado del Pedido: " + data.status;
+        total_qtyElement.innerText = "Total de unidades del pedido: " + data.total_qty;
         orderResult.appendChild(statusElement);
+        orderResult.appendChild(total_qtyElement);
 
         data.productos.forEach((item) => {
           var titleElement = document.createElement("h2");
