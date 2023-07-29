@@ -5,3 +5,7 @@ const fetchFromApi =(endpoint)=> {
         console.error("Error:", error);
       });
   }
+
+
+const showLoader = () => loader.style.display = "block";
+const hideLoader = () => loader.style.display = "none";

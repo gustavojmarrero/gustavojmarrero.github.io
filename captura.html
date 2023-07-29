@@ -4,25 +4,14 @@
     <title>Por Arribar</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" >
     <meta charset="UTF-8">
-    <link
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-      rel="stylesheet"
-    >
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
     <link rel="icon" href="favicon.png">
     <link rel="stylesheet" type="text/css" href="src/css/styles.css">
   </head>
   <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <a class="navbar-brand" href="#">Recepción Almacén</a>
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-toggle="collapse"
-        data-target="#navbarNav"
-        aria-controls="navbarNav"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
@@ -33,12 +22,11 @@
           <li class="nav-item">
             <a class="nav-link" href="pedido.html">Pedido</a>
           </li>
-          <li class="nav-item active">
-            <a class="nav-link" href="#"
-            >Por Arribar<span class="sr-only">(current)</span></a>
-          </li>
           <li class="nav-item">
-            <a class="nav-link" href="captura.html">Captura</a>
+            <a class="nav-link" href="pedidos.html">Por Arribar</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Captura<span class="sr-only">(current)</span></a>
           </li>
         </ul>
       </div>
@@ -54,31 +42,26 @@
               <option>Cancún</option>
             </select>
           </div>
-          <button class="search-button" onclick="getOrdersByLocation()">Buscar</button>
+          <div class="form-group">
+            <label for="barcode">Código de Barras:</label>
+            <input type="text" id="barcode" class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="quantity">Cantidad:</label>
+            <input type="number" id="quantity" class="form-control">
+          </div>
+          <button id="saveButton" class="btn btn-primary">Guardar</button>
           <div id="loader">
             <div class="spinner-border text-primary" role="status">
               <span class="sr-only">Cargando...</span>
             </div>
           </div>
-          <table id="results">
-            <thead>
-              <tr>
-                <th>Proveedor</th>
-                <th>Orden</th>
-                <th>Unidades</th>
-              </tr>
-            </thead>
-            <tbody>
-              <!-- The results from the API will be inserted here -->
-            </tbody>
-          </table>
         </div>
       </div>
     </div>
-
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
     <script src="./src/js/api.js"></script>
-    <script src="./src/js/pedidos.js"></script>
+    <script src="src/js/captura.js"></script>
   </body>
 </html>
