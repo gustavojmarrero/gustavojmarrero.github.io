@@ -1,15 +1,10 @@
-#FNSKUdisplay {
-    font-size: 2rem; /* Change this as per your requirement */
-  }
-  #ASINdisplay {
-    font-size: 80%; /* 70% of FNSKUdisplay font size */
-  }
+
   .form-group {
     margin-bottom: 1rem;
   }
 
   select,
-  .search-button {
+  .search-button, .saveButton {
     width: 100%;
     height: calc(1.5em + 0.75rem + 2px);
     padding: 0.375rem 0.75rem;
@@ -23,12 +18,12 @@
     border-radius: 0.25rem;
     transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
   }
-  .search-button {
+  .search-button,.saveButton {
     color: #fff;
     background-color: #007bff;
     border-color: #007bff;
   }
-  .search-button:hover {
+  .search-button:hover,.saveButton:hover {
     color: #fff;
     background-color: #0069d9;
     border-color: #0062cc;
@@ -61,9 +56,14 @@
         font-size: 2rem; /* Change this as per your requirement */
       }
       h3 {
-        font-size: 1.3rem; /* 80% of h2 font size */
+        font-size: 1.3rem; 
       }
       
+      h1 {
+        font-size: 1.75rem; 
+        font-weight: 350;
+      }
+
       img {
         max-height: 150px; /* for mobile */
         width: auto;
@@ -71,6 +71,12 @@
         margin-left: auto;
         margin-right: auto;
       }
+      .table td, .table th {
+        font-size: 1.25rem; /* Same size as #FNSKUdisplay */
+        vertical-align: middle;
+        font-weight: normal; /* Not bold */
+      }
+
       @media (min-width: 992px) {
         img {
           max-height: 300px; /* for PC */
