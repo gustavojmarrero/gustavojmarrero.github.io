@@ -32,3 +32,11 @@ const getDataByCode = () => {
       document.getElementById("PRODUCT").focus();
     });
 }
+
+const urlParams = new URLSearchParams(window.location.search);
+const product = urlParams.get("product");
+
+if (product) {
+  document.getElementById("PRODUCT").value = product;
+  getDataByCode();
+}
