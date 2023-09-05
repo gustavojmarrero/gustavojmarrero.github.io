@@ -37,6 +37,7 @@ const urlParams = new URLSearchParams(window.location.search);
 const product = urlParams.get("product");
 
 if (product) {
+  console.log("Product:", product);
   document.getElementById("PRODUCT").value = product;
   getDataByCode();
 }
