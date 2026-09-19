@@ -1,0 +1,8 @@
+{
+  "site_parts": 3,
+  "audio_parts": 46,
+  "chunk_chars": 18000,
+  "audio_bytes": 614935,
+  "audio_sha256": "0fd6dc29b8deaf7962d85b9f8b446ce7489504797fbf3ee01f0174b455f2d6c1",
+  "html_sha256": "37b4ac49c6f3221b91f40bed272de1654f71202a4e2536059727debae58271a5"
+}

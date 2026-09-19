@@ -1,0 +1,12 @@
+{
+  "id": "./",
+  "name": "Florencia a pie · Audioguía",
+  "short_name": "Florencia a pie",
+  "description": "Seis paradas, un audio y otra manera de mirar Florencia.",
+  "lang": "es",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f5f2e9",
+  "theme_color": "#f5f2e9"
+}
